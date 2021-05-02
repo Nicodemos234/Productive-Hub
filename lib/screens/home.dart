@@ -15,13 +15,17 @@ class Home extends StatelessWidget {
               Icons.collections_bookmark,
               'Livros',
               Colors.deepPurple,
-              onClick: () => {},
+              onPressed: () {
+                print("clique1");
+              },
             ),
             GridItem(
               Icons.person_pin,
               'Manias',
               Colors.lightBlue,
-              onClick: () => {},
+              onPressed: () {
+                print("clique2");
+              },
             ),
           ],
         ),

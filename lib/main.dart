@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Productive Hub',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
+        scaffoldBackgroundColor: Colors.grey[900],
       ),
       home: Home(),
     );
