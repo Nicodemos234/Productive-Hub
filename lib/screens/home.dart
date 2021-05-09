@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:productivehub/models/gridItem.dart';
+import 'package:productivehub/screens/books.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -14,9 +15,13 @@ class Home extends StatelessWidget {
             GridItem(
               Icons.collections_bookmark,
               'Livros',
-              Colors.deepPurple,
+              Colors.deepOrange[600],
               onPressed: () {
-                print("clique1");
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Books(),
+                  ),
+                );
               },
             ),
             GridItem(
