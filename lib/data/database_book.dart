@@ -19,6 +19,12 @@ class DatabaseBook {
     return result;
   }
 
+  Future<int> updateBook(Book book) async {
+    final database = await getDatabaseHandle();
+    return await database
+        .update("Book", book.toJson(), where: "id = ?", whereArgs: [book.id]);
+  }
+
   Future<List<Book>> getBooks() async {
     final database = await getDatabaseHandle();
     List<Map<String, Object>> result = await database.query("Book",
