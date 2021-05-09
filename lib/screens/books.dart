@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:productivehub/screens/add_books.dart';
 
 class Books extends StatefulWidget {
   @override
@@ -13,6 +14,19 @@ class _BooksState extends State<Books> {
         backgroundColor: Colors.deepOrange[600],
         title: Text('Livros'),
         centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepOrange[600],
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddBooks(),
+            ),
+          );
+        },
       ),
     );
   }
