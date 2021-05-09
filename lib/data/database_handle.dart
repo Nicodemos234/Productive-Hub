@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'database_book.dart';
 
 class DatabaseHandle {
   createDatabase() async {
@@ -11,12 +12,7 @@ class DatabaseHandle {
   }
 
   void populateDb(Database database, int version) async {
-    await database.execute("CREATE TABLE Book ("
-        "id INTEGER PRIMARY KEY,"
-        "name TEXT,"
-        "total_pages INTEGER,"
-        "current_page INTEGER,"
-        "cover_dir TEXT"
-        ")");
+    DatabaseBook bookData = new DatabaseBook();
+    await bookData.createBookDatabase(database, version);
   }
 }
