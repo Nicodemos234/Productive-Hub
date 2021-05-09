@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:productivehub/data/database_book.dart';
+import 'package:productivehub/models/book.dart';
 import 'package:productivehub/screens/add_books.dart';
 
 class Books extends StatefulWidget {
@@ -7,6 +9,21 @@ class Books extends StatefulWidget {
 }
 
 class _BooksState extends State<Books> {
+  bool isLoading = true;
+  List<Book> books = [];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    DatabaseBook databaseBook = new DatabaseBook();
+    databaseBook.getBooks().then((value) {
+      setState(() {
+        books = value;
+        isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,17 +32,16 @@ class _BooksState extends State<Books> {
         title: Text('Livros'),
         centerTitle: true,
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Nenhum livro adicionado',
-              textAlign: TextAlign.center,
+      body: isLoading
+          ? Text('Carregando')
+          : ListView.builder(
+              itemCount: books.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(books[index].name),
+                );
+              },
             ),
-          ),
-        ],
-      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepOrange[600],
         child: Icon(
