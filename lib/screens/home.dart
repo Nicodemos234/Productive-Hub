@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:productivehub/models/gridItem.dart';
+import 'package:productivehub/models/grid_item.dart';
 import 'package:productivehub/screens/books.dart';
 
 class Home extends StatelessWidget {
