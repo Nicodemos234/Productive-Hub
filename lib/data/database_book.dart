@@ -1,3 +1,5 @@
+import 'package:productivehub/data/database_handle.dart';
+import 'package:productivehub/models/book.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseBook {
@@ -9,5 +11,28 @@ class DatabaseBook {
         "current_page INTEGER,"
         "cover_dir TEXT"
         ")");
+  }
+
+  Future<int> createBook(Book book) async {
+    final database = await getDatabaseHandle();
+    int result = await database.insert("Book", book.toJson());
+    return result;
+  }
+
+  Future<List<Book>> getBooks() async {
+    final database = await getDatabaseHandle();
+    List<Map<String, Object>> result = await database.query("Book",
+        columns: ["id", "name", "total_pages", "current_page", "cover_dir"]);
+    List<Book> books = [];
+    for (Map<String, dynamic> element in result) {
+      books.add(Book.fromJson(element));
+    }
+    return books;
+  }
+
+  Future<Database> getDatabaseHandle() async {
+    final DatabaseHandle databaseHandle = DatabaseHandle();
+    final Database database = await databaseHandle.createDatabase();
+    return database;
   }
 }

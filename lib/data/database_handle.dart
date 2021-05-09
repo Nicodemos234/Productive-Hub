@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 import 'database_book.dart';
 
 class DatabaseHandle {
-  createDatabase() async {
+  Future<Database> createDatabase() async {
     String databasesPath = await getDatabasesPath();
     String dbPath = join(databasesPath, 'main.db');
 
