@@ -15,6 +15,17 @@ class _BooksState extends State<Books> {
         title: Text('Livros'),
         centerTitle: true,
       ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Nenhum livro adicionado',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepOrange[600],
         child: Icon(
