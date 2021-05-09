@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:productivehub/models/book.dart';
+import 'dart:io';
 
 class BookListItem extends StatelessWidget {
   final Book book;
@@ -11,8 +12,8 @@ class BookListItem extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Image.network(
-              book.coverDir,
+            Image.file(
+              File(book.coverDir),
               width: 80,
             ),
             Column(
