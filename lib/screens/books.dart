@@ -14,7 +14,6 @@ class _BooksState extends State<Books> {
   List<Book> books = [];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     DatabaseBook databaseBook = new DatabaseBook();
     databaseBook.getBooks().then((value) {
