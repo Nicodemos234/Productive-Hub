@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:productivehub/components/book_list_item.dart';
 import 'package:productivehub/data/database_book.dart';
 import 'package:productivehub/models/book.dart';
 import 'package:productivehub/screens/add_books.dart';
@@ -37,9 +38,7 @@ class _BooksState extends State<Books> {
           : ListView.builder(
               itemCount: books.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(books[index].name),
-                );
+                return BookListItem(books[index]);
               },
             ),
       floatingActionButton: FloatingActionButton(
