@@ -1,6 +1,6 @@
 # productivehub
 
-A new Flutter project.
+Flutter app hub to help the user to be more productive
 
 ## Getting Started
 
